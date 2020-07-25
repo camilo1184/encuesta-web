@@ -1,0 +1,5 @@
+<button mat-button [matMenuTriggerFor]="belowMenu">Menu</button>
+<mat-menu #belowMenu="matMenu" yPosition="below">
+  <button mat-menu-item (click)="selectOption('poll')">Formulario de encuesta</button>
+  <button mat-menu-item (click)="selectOption('response')">Consultar respuesta</button>
+</mat-menu>

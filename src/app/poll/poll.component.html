@@ -1,0 +1,39 @@
+<mat-card>
+    <mat-card-title>Formulario de encuesta</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <p>
+                <mat-form-field>
+                    <input type="number" matInput placeholder="Número de documento" formControlName="numberId" [(ngModel)]="poll.numberId">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Email" formControlName="email" [(ngModel)]="poll.email">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Comentarios</mat-label>
+                    <textarea matInput formControlName="coments" [(ngModel)]="poll.coments"></textarea>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-label>Seleccione una opción</mat-label>
+                <mat-select formControlName="brand" [(ngModel)]="poll.brandType.id" ngDefaultControl>
+                    <mat-option *ngFor="let option of brands" [value]="option.id">
+                        {{option.description}}
+                    </mat-option>
+                </mat-select>
+            </p>
+
+            <div class="button">
+                <button type="submit" mat-button>Enviar</button>
+            </div>
+
+        </form>
+    </mat-card-content>
+</mat-card>

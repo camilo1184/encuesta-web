@@ -1,0 +1,38 @@
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="numberId">
+      <mat-header-cell *matHeaderCellDef> Identoficación </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.numberId}} </mat-cell>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="coments">
+      <mat-header-cell *matHeaderCellDef> Comentarios </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.coments}} </mat-cell>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="brandType">
+      <mat-header-cell *matHeaderCellDef> Marca PC </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.brandType.description}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="date">
+      <mat-header-cell *matHeaderCellDef>Fecha Respuesta </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.dateResponse}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef> Eliminar </mat-header-cell>
+        <mat-cell *matCellDef="let element"> <button (click)="deletePoll(element.id)">Descartar</button>  </mat-cell>
+      </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
